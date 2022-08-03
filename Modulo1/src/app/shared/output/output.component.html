@@ -1,0 +1,6 @@
+<hr>
+<h1>Output (shared)</h1>
+<p *ngFor="let item of list; let i = index">
+    |{{i}}| -> {{item.nome}} - {{item.idade}} anos *** 
+    <button (click)="getDados(i)">Enviar Dados</button>
+</p>

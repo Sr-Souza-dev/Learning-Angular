@@ -1,0 +1,11 @@
+<hr>
+<h1>Formulário Reativo</h1>
+
+<form [formGroup]="cadastroForm" (ngSubmit)="submitForm()">
+    <input type="text" formControlName="firstName">
+    <input type="text" formControlName="lastName">
+
+    <button>Enviar</button>
+</form>
+
+{{cadastroForm.get('lastName')?.errors | json}} <!--Caso haja erro retornará objeto com o erro em true-->

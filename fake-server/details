@@ -1,0 +1,5 @@
+Criando um servidor Virtual
+https://www.npmjs.com/package/json-server
+
+Levantando o servidor
+json-server --watch db.json

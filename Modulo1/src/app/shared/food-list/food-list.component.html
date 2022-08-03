@@ -1,0 +1,8 @@
+<hr>
+<h1>Serviços, http e observable (Shared)</h1>
+
+<li *ngFor="let item of foodList">
+    {{item.id}} => {{item.nome}}
+    <input type="text" [(ngModel)] = "item.nome" (keyup.enter)="foodlistPut(item.nome, item.id)">
+    <button (click)="foodListDelete(item.id)">Deletar</button>
+</li>

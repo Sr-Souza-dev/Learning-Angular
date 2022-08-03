@@ -1,0 +1,61 @@
+<ng-content select="hr"></ng-content>                            <!-- Serve para inserir dados de forma dinamica no componente (podendo escolher a posição de cada componente em relação a pagina atravez do select)-->
+
+<!--Diretivas Estruturais (*ng -> sitax sugar)-->
+<h1>Diretivas Estruturais</h1>
+
+<h2>ngIf</h2>
+<p *ngIf="condition">diretivas works1!</p>                       <!--Se o condition for true o 'p' é exibido, caso seja false ele ficará oculto-->
+<p *ngIf="condition; else elseBlock">diretivas works2!</p>       <!--Se o condition for true o 'p' é exibido, caso seja false ele exibirá o '<ng-template #elseBlock>'-->
+<ng-template #elseBlock> <p>Else Block </p> </ng-template>
+
+<h2>ngFor</h2>
+<ul>
+    <li *ngFor="let item of list">{{item.nome}}</li>                        <!--Repete a estrutura de acordo com o tamanho de list-->
+</ul>
+<p *ngFor="let item of list; let i = index">[{{i}}] -> {{item.nome}}</p>    <!--Repete a estrutura do 'p' com os novos dados de cada posição de 'list'-->
+
+<h2>ngSwitch</h2>
+<div [ngSwitch]="'nay'">                            <!--Seleciona o item a ser exibido de acordo com o switch case especificado-->
+    <p *ngSwitchCase="'dener'">
+        Dener
+    </p>
+    <p *ngSwitchCase="'nay'">
+        Nay
+    </p>
+    <p *ngSwitchCase="'lock'">
+        Lock
+    </p>
+    <p *ngSwitchDefault>
+        Default
+    </p>
+</div>
+
+<hr>
+<!--Diretivas de Atributos-->
+<h1>Diretivas de Atributos</h1>
+
+<h2>NgClass</h2>
+<p [ngClass]="{'active':condition, 'disabled':!condition}"> NgClass </p>    <!--Vai alterar a class aplicada ao componente o qual estiver com '!/conditional:true' (active ou disabled)-->
+
+<h2>NgStyle</h2>
+<p [ngStyle]="{'height':height}"> NgStyle</p>                               <!--Recebe o tamanho da class e define no style do componente-->
+
+<h2>ngModel</h2>
+<input type="text" [(ngModel)]="nome"> {{nome}}                             <!--Atualiza a variavel 'nome' em tempo real (muito utilizado em vaidações)-->
+
+<h2>ngTemplate</h2>                                                         <!-- Primeiro verifica a condição do template e depois rederiza caso esteja okay. (Otimiza processamento e espaço)-->
+<ng-template [ngIf] = "true">                                               <!-- Caso o if seja true ele rederiza seu conteúdo interno-->
+    <p>NG-Tamplate (Aplicando)</p>
+</ng-template>
+<ng-template ngFor let-item [ngForOf]="list">                               <!-- Caso haja items em 'list' ele rederiza seu conteúdo interno n (list.lengh) vezes com os parametros passados-->
+    <p>Template -> {{item.nome}}</p>
+</ng-template>
+
+<h2>ngContent</h2>  
+<ng-content select="p"></ng-content>                                        <!-- Serve para inserir dados de forma dinamica no componente (podendo escolher a posição de cada componente em relação a pagina atravez do select)-->
+
+
+<hr>
+<h1>Pipes</h1>
+<li *ngFor="let item of list">{{item.nome | uppercase}}</li>                <!-- Implementa funções já conhecidas atraves do pipe (Consultar documentação para mais pipes/funções disponíveis)-->
+{{date | date: 'dd/MM/yyyy'}}                                               <!-- Outra funcionalidade do pipe ja definida que ajusta a data de acordo com o especificado-->

@@ -1,0 +1,17 @@
+<hr>
+<h1>Binding</h1>
+<h2>Interpolation Binding</h2>
+<p>binding works! -> {{interpolat}}</p>                         <!--'{{}}'' é chamado de interpolação e serve para pegar variaveis publicas da class (aceita lógica de programação básica)-->
+<br>
+
+<h2>Property Binding</h2>
+<button [disabled]="propertyCheck"> PropertyBiding </button>    <!--'[]' é chamado de propertyBiding. Ele aceita valores da class para contribuir na instância de componentes de forma oculta (essa propriedade não deixa o nome da variavel aparecer no browser)-->
+<br>
+
+<h2>Event Binding -> {{evTitle}}</h2>
+<button (click)="eventBd($event)"> Alterar Title</button>       <!--'()' é chamado de eventBiding. Faz com que funções da class sejam aceitas e executadas-->
+<br>
+
+<h2>Two-Ways Binding</h2>
+<input type="text" [(ngModel)]="twoWay" >                       <!--'[()]' é chamado de Two-Way-Biding. Faz com que entradas (valores via html) sejam vistas em tempo real pelo codigo. (Para tal, é necessario utilizar/importar o FormsModule no app.module.ts)-->
+<h3>{{twoWay}}</h3>
